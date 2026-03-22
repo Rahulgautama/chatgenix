@@ -3,7 +3,6 @@ import Login from './components/Login';
 import Register from './components/Register';
 import ChatApp from './components/ChatApp'; // Import your new component
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
@@ -17,7 +16,6 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/ChatApp" element={<ChatApp />} /> 
       </Routes>
-      <Footer></Footer>
     </Router>
   );
 }
