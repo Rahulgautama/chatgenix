@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API = axios.create({
   baseURL: "https://chatgenix.bsite.net/api"
-  // baseURL: "https://localhost:7115/api"
+//   baseURL: "https://localhost:7115/api"
 });
 
 // Interceptor: Har request ke sath automatically token bhejega
@@ -24,6 +24,10 @@ export const sendMessage = (data) => API.post('/Messages/send', data);
 
 //User API
 export const getAllUsers = () => API.get('/user/all-users');
+
+// Contacts API
+export const getMyContacts = (ownerMobile) => API.get(`/Contacts/${ownerMobile}`);
+export const addContact = (data) => API.post('/Contacts/add', data);
 
 // 3. Default Export (Agar aap API instance use karna chahte hain)
 export default API;
