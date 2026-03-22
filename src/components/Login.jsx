@@ -39,11 +39,12 @@ const Login = () => {
     };
 
     return (
-        <div className="container mt-3">
-            <div className="row justify-content-center">
-                <div className="col-12 col-md-5 col-lg-4">
+        <div className="container-fluid min-vh-100 d-flex align-items-center justify-content-center bg-light">
+            <div className="row w-100 justify-content-center">
+                {/* Mobile pe 'col-11' ya 'col-10' use karein taki sides me thodi jagah rahe */}
+                <div className="col-8 col-sm-8 col-md-5 col-lg-4">
                     <div className="card p-4 shadow border-0 rounded-4">
-                        <div className="text-center mb-1">
+                        <div className="text-center mb-3">
                             <h2 className="fw-bold text-primary">Login</h2>
                             <p className="text-muted small">Welcome back to ChatGenix</p>
                         </div>
@@ -58,41 +59,41 @@ const Login = () => {
                         <form onSubmit={handleSubmit}>
                             {/* Mobile Input */}
                             <div className="mb-3">
-                                <label className="form-label fw-semibold small">Mobile</label>
-                                <div className="input-group">
-                                    <span className="input-group-text bg-light border-end-0">
+                                <label className="form-label fw-semibold small text-secondary">Mobile</label>
+                                <div className="input-group shadow-sm rounded-3 overflow-hidden">
+                                    <span className="input-group-text bg-white border-end-0">
                                         <i className="bi bi-phone text-muted"></i>
                                     </span>
-                                    <input 
-                                        type="text" 
-                                        className="form-control bg-light border-start-0 ps-0 shadow-none" 
+                                    <input
+                                        type="text"
+                                        className="form-control bg-white border-start-0 ps-0 shadow-none"
                                         placeholder="9044XXXXXX"
                                         required
                                         maxLength="10"
-                                        onChange={(e) => setFormData({...formData, mobile: e.target.value.replace(/\D/g, '')})} 
+                                        onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, '') })}
                                     />
                                 </div>
                             </div>
 
-                            {/* Password Input - Fix Class Here */}
+                            {/* Password Input */}
                             <div className="mb-4">
-                                <label className="form-label fw-semibold small">Password</label>
-                                <div className="input-group">
-                                    <span className="input-group-text bg-light border-end-0">
+                                <label className="form-label fw-semibold small text-secondary">Password</label>
+                                <div className="input-group shadow-sm rounded-3 overflow-hidden">
+                                    <span className="input-group-text bg-white border-end-0">
                                         <i className="bi bi-lock text-muted"></i>
                                     </span>
-                                    <input 
-                                        type="password" 
-                                        className="form-control bg-light border-start-0 ps-0 shadow-none" // ✅ Fixed: form-control
-                                        placeholder="*****"
+                                    <input
+                                        type="password"
+                                        className="form-control bg-white border-start-0 ps-0 shadow-none"
+                                        placeholder="••••••••"
                                         required
-                                        onChange={(e) => setFormData({...formData, password: e.target.value})} 
+                                        onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                                     />
                                 </div>
                             </div>
 
-                            <button 
-                                className="btn btn-primary w-100 fw-bold py-2 rounded-pill shadow-sm"
+                            <button
+                                className="btn btn-primary w-100 fw-bold py-2 rounded-pill shadow-sm transition-all"
                                 disabled={loading}
                             >
                                 {loading ? (
@@ -102,14 +103,15 @@ const Login = () => {
                         </form>
 
                         <div className="mt-4 text-center">
-                            <p className="small text-muted">
-                                Don't have an account? <Link to="/register" className="text-primary fw-bold text-decoration-none">Register</Link>
+                            <p className="small text-muted mb-0">
+                                Don't have an account? <Link to="/register" className="text-primary fw-bold text-decoration-none ms-1">Register</Link>
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     );
 };
 
