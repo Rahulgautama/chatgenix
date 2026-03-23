@@ -162,31 +162,77 @@ const ChatApp = () => {
 
             {/* --- ✅ ADD CONTACT MODAL WITH NAME --- */}
             {showModal && (
-                <div className="modal show d-block" style={{ backgroundColor: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)' }}>
-                    <div className="modal-dialog modal-dialog-centered" style={{ maxWidth: '350px' }}>
-                        <div className="modal-content border-0 shadow-lg rounded-3">
-                            <div className="modal-header bg-primary text-white border-0 py-3">
-                                <h6 className="modal-title fw-bold">New Contact</h6>
-                                <button type="button" className="btn-close btn-close-white shadow-none" onClick={() => setShowModal(false)}></button>
-                            </div>
-                            <form onSubmit={handleAddContact}>
-                                <div className="modal-body p-4">
-                                    <div className="mb-3">
-                                        <label className="form-label small fw-bold text-muted">Contact Name</label>
-                                        <input type="text" className="form-control bg-light border-0 shadow-none" placeholder="Enter Name" value={newContactName} onChange={(e) => setNewContactName(e.target.value)} required />
-                                    </div>
-                                    <div>
-                                        <label className="form-label small fw-bold text-muted">Mobile Number</label>
-                                        <input type="text" className="form-control bg-light border-0 shadow-none" placeholder="9382***" value={newContactMobile} onChange={(e) => setNewContactMobile(e.target.value.replace(/\D/g, ''))} maxLength="10" required />
-                                    </div>
-                                </div>
-                                <div className="modal-footer border-0 p-3 pt-0">
-                                    <button type="submit" className="btn btn-primary rounded-pill w-100 fw-bold shadow-sm py-2">Add Contact</button>
-                                </div>
-                            </form>
-                        </div>
+                <div 
+    className="modal show d-block d-flex align-items-center justify-content-center" 
+    style={{ 
+        backgroundColor: 'rgba(0,0,0,0.6)', 
+        backdropFilter: 'blur(4px)',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        zIndex: 1050
+    }}
+>
+    <div 
+        className="modal-dialog modal-dialog-centered border-0" 
+        style={{ 
+            maxWidth: '350px', 
+            width: '95%', // Ensures it doesn't hit screen edges on small phones
+            margin: 'auto' 
+        }}
+    >
+        <div className="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+            <div className="modal-header bg-primary text-white border-0 py-3">
+                <h6 className="modal-title fw-bold">New Contact</h6>
+                <button 
+                    type="button" 
+                    className="btn-close btn-close-white shadow-none" 
+                    onClick={() => setShowModal(false)}
+                ></button>
+            </div>
+            
+            <form onSubmit={handleAddContact}>
+                <div className="modal-body p-4">
+                    <div className="mb-3">
+                        <label className="form-label small fw-bold text-muted">Contact Name</label>
+                        <input 
+                            type="text" 
+                            className="form-control bg-light border-0 shadow-none py-2" 
+                            placeholder="Enter Name" 
+                            value={newContactName} 
+                            onChange={(e) => setNewContactName(e.target.value)} 
+                            required 
+                        />
+                    </div>
+                    <div>
+                        <label className="form-label small fw-bold text-muted">Mobile Number</label>
+                        <input 
+                            type="tel" // Changed to tel for mobile number pad
+                            className="form-control bg-light border-0 shadow-none py-2" 
+                            placeholder="9382***" 
+                            value={newContactMobile} 
+                            onChange={(e) => setNewContactMobile(e.target.value.replace(/\D/g, ''))} 
+                            maxLength="10" 
+                            required 
+                        />
                     </div>
                 </div>
+                
+                <div className="modal-footer border-0 p-4 pt-0">
+                    <button 
+                        type="submit" 
+                        className="btn btn-primary rounded-pill w-100 fw-bold shadow-sm py-2"
+                    >
+                        Add Contact
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
             )}
         </div>
     );
